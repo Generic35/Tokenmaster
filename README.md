@@ -40,4 +40,3 @@ In a separate terminal execute:
 `$ npm run start`
 
 Thanks to dapp university for the starter code.
-# Tokenmaster
