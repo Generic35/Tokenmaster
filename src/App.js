@@ -24,7 +24,28 @@ function App() {
   const [toggle, setToggle] = useState(false)
 
   const loadBlockchainData = async () => {
-    // TODO: Load blockchain data
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    setProvider(provider)
+
+    const network = await provider.getNetwork()
+    const tokenMaster = new ethers.Contract(config[network.chainId].TokenMaster.address, TokenMaster, provider)
+    setTokenMaster(tokenMaster)
+
+    const totalOccasions = await tokenMaster.totalOccasions()
+    const occasions = []
+
+    for (var i = 1; i <= totalOccasions; i++) {
+      const occasion = await tokenMaster.getOccasion(i)
+      occasions.push(occasion)
+    }
+
+    setOccasions(occasions)
+
+    window.ethereum.on('accountsChanged', async () => {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+      const account = ethers.utils.getAddress(accounts[0])
+      setAccount(account)
+    })
   }
 
   useEffect(() => {
