@@ -10,7 +10,7 @@ const SeatChart = ({ occasion, tokenMaster, provider, setToggle }) => {
 
   return (
     <div className="occasion">
-
+      {/* Seat chart to be implemented later, do not add this yet */}
     </div >
   );
 }

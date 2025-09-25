@@ -60,13 +60,13 @@ function App() {
         <h2 className="header__title"><strong>Event</strong> Tickets</h2>
       </header>
 
-      <Sort />
-
       <div className='cards'>
-        {/* Occasions will go here, do not add this yet */}
+        {/* TODO: Add occasion cards here */}
       </div>
 
-      {/* Seat chart, do not add this yet */}
+      {toggle && (
+        {/* Seat chart to be implemented later, do not add this yet */}
+      )}
     </div>
   );
 }
