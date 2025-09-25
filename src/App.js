@@ -60,7 +60,6 @@ function App() {
         <h2 className="header__title"><strong>Event</strong> Tickets</h2>
       </header>
 
-
       <div className='cards'>
         {occasions.map((occasion, index) => (
           <Card
@@ -78,7 +77,12 @@ function App() {
       </div>
 
       {toggle && (
-        {/* Seat chart to be implemented later, do not add this yet */}
+        <SeatChart
+          occasion={occasion}
+          tokenMaster={tokenMaster}
+          provider={provider}
+          setToggle={setToggle}
+        />
       )}
     </div>
   );
